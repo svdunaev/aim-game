@@ -94,6 +94,12 @@ h1 {
   overflow: hidden;
 }
 
+.board .time-btn {
+  position: absolute;
+  top: 300px;
+  left: 150px;
+}
+
 .circle {
   background: linear-gradient(90deg, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
   position: absolute;

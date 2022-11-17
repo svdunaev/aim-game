@@ -7,6 +7,8 @@ const board = document.querySelector('#board');
 let gameTime = 0;
 let score = 0;
 
+const HEX_VALUES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
 startButton.addEventListener('click', (evt) => {
 	evt.preventDefault();
 
@@ -53,7 +55,8 @@ function setTime(value) {
 
 function finishGame() {
 	remainingTime.parentNode.classList.add('hide');
-	board.innerHTML = `<h1>Cчет <span class="primary">${score}</span></h1>`
+	board.innerHTML = `<h1>Cчет <span class="primary">${score}</span></h1>`;
+	board.append(restartBtn);
 };
 
 function createRandomCircle() {
@@ -69,10 +72,20 @@ function createRandomCircle() {
 	circle.style.height = `${size}px`;
 	circle.style.top = `${y}px`;
 	circle.style.left = `${x}px`;
+	circle.style.background = createRandomColor();
 
 	board.append(circle);
-}
+};
 
 function getRandomNumber(min, max) {
 	return  Math.round(Math.random() * (max - min) + min);
-}
+};
+
+function createRandomColor() {
+	let hex = '#';
+	for (let i = 0; i < 6; i++) {
+		const index = Math.floor(Math.random() * HEX_VALUES.length);
+		hex += HEX_VALUES[index];
+	}
+	return hex;
+};
