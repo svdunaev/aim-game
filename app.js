@@ -56,7 +56,6 @@ function setTime(value) {
 function finishGame() {
 	remainingTime.parentNode.classList.add('hide');
 	board.innerHTML = `<h1>Cчет <span class="primary">${score}</span></h1>`;
-	board.append(restartBtn);
 };
 
 function createRandomCircle() {
